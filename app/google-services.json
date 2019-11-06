@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1021828347270",
+    "firebase_url": "https://drunkornot-2fb5d.firebaseio.com",
+    "project_id": "drunkornot-2fb5d",
+    "storage_bucket": "drunkornot-2fb5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021828347270:android:fe1ea041e348344a886807",
+        "android_client_info": {
+          "package_name": "com.zacharadamian.drunkornot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1021828347270-uvjt4cv5lho67fu07a0lb6h74d1r2qp5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCO9z8V5_FLLqS0gH37enXqzFlXXoODRQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021828347270-uvjt4cv5lho67fu07a0lb6h74d1r2qp5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
