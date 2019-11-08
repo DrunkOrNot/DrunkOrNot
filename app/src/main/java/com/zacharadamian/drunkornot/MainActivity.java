@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String result = (String) ds.getValue();
+                            String result = ds.getValue().toString();
                             txtData.setText(result);
 
                         }
