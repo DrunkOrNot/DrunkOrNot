@@ -3,7 +3,10 @@ package com.zacharadamian.drunkornot;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,17 +22,34 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     TextView txtData;
     Button btnGo;
-
+    Spinner spSex;
+    ArrayAdapter<CharSequence> adapter;
+    public void initView() {
+        btnGo = findViewById(R.id.btnGo);
+        txtData = this.findViewById(R.id.txtData);
+        spSex = findViewById(R.id.spSex);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnGo = findViewById(R.id.btnGo);
-        txtData = this.findViewById(R.id.txtData);
+        initView();
+
+        adapter = ArrayAdapter.createFromResource(this,
+                R.array.sex_array, android.R.layout.simple_dropdown_item_1line);
+        spSex.setAdapter(adapter);
+        spSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 mDatabase = FirebaseDatabase.getInstance().getReference().child("sensor");
                 Query last = mDatabase.orderByKey().limitToLast(1);
                 last.addValueEventListener(new ValueEventListener() {
@@ -37,9 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String result = ds.getValue().toString(); //testowy komentarz
+                            String result = ds.getValue().toString();
                             txtData.setText(result);
-
                         }
                     }
                     @SuppressLint("SetTextI18n")

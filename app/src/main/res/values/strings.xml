@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Drunk Or Not</string>
+
+    <string-array name="sex_array">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
 </resources>
