@@ -22,6 +22,20 @@
             android:textStyle="bold"
             tools:text="@tools:sample/cities" />
 
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/editTextMass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
         <Spinner
             android:id="@+id/spSex"
             android:layout_width="match_parent"
