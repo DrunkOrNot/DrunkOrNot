@@ -22,8 +22,18 @@
             android:textStyle="bold"
             tools:text="@tools:sample/cities" />
 
+        <Button
+            android:id="@+id/btnGo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:background="@android:color/holo_orange_light"
+            android:minWidth="250dp"
+            android:text="GO" />
+
         <EditText
-            android:id="@+id/editTextTime"
+            android:id="@+id/editTextEthanolIntake"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -41,14 +51,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <Button
-            android:id="@+id/btnGo"
+            android:id="@+id/btnCalculate"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="2dp"
             android:background="@android:color/holo_orange_light"
             android:minWidth="250dp"
-            android:text="GO" />
+            android:text="CALCULATE" />
+
+        <TextView
+            android:id="@+id/textBACDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:text="Alcohol Concentration" />
+
+        <TextView
+            android:id="@+id/txtBACResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

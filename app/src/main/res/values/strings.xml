@@ -2,8 +2,8 @@
     <string name="app_name">Drunk Or Not</string>
 
     <string-array name="sex_array">
-        <item>male</item>
-        <item>female</item>
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
 
 </resources>

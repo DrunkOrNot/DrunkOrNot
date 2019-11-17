@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +24,19 @@ public class MainActivity extends AppCompatActivity {
     TextView txtData;
     Button btnGo;
     Spinner spSex;
+    EditText txtMass;
+    EditText txtEthanolIntake;
+    Button btnCalculate;
+    TextView txtBACResult;
+
     ArrayAdapter<CharSequence> adapter;
     public void initView() {
         btnGo = findViewById(R.id.btnGo);
         txtData = this.findViewById(R.id.txtData);
         spSex = findViewById(R.id.spSex);
+        txtMass = findViewById(R.id.editTextMass);
+        txtEthanolIntake = findViewById(R.id.editTextEthanolIntake);
+        btnCalculate = findViewById(R.id.btnCalculate);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +50,15 @@ public class MainActivity extends AppCompatActivity {
         spSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spSex.getSelectedItem().equals("male")) {
-
-                }else{
-
-                }
+//                if (spSex.getSelectedItem().equals("male")) {
+//
+//                }else{
+//
+//                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                spSex.setSelection(0);
             }
         });
         btnGo.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +81,15 @@ public class MainActivity extends AppCompatActivity {
                         txtData.setText("error");
                     }
                 });
+            }
+        });
+
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sex sex = spSex.getSelectedItem().equals("Male") ? Sex.Male : Sex.Female;
+                Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
+                txtBACResult.setText(String.valueOf(body.CalculateBAC(Integer.valueOf(txtEthanolIntake.getText().toString()), 1))); //hardcoded drinkingSpan WIP
             }
         });
     }
