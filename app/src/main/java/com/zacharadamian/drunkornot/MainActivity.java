@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txtEthanolIntake;
     Button btnCalculate;
     TextView txtBACResult;
+    TextView txtSoberUpResult;
 
     ArrayAdapter<CharSequence> adapter;
     public void initView() {
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         txtMass = findViewById(R.id.editTextMass);
         txtEthanolIntake = findViewById(R.id.editTextEthanolIntake);
         btnCalculate = findViewById(R.id.btnCalculate);
+        txtBACResult = findViewById(R.id.txtBACResult);
+        txtSoberUpResult = findViewById(R.id.txtSoberingUpTimeResult);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +91,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Sex sex = spSex.getSelectedItem().equals("Male") ? Sex.Male : Sex.Female;
-                Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
-                txtBACResult.setText(String.valueOf(body.CalculateBAC(Integer.valueOf(txtEthanolIntake.getText().toString()), 1))); //hardcoded drinkingSpan WIP
+
+                //Huge trycatch WIP
+                try {
+                    Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
+                    txtBACResult.setText(String.valueOf(Calculations.CalculateBAC(body,
+                            Integer.valueOf(txtEthanolIntake.getText().toString()), 1))); //hardcoded drinkingSpan WIP
+                    
+//                     WIP
+//                    txtSoberUpResult.setText("You will get sober in: " + "blah");
+//                    Calculations.CalculateMinSoberingUpTime(body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+//                    Calculations.CalculateMaxSoberingUpTime(body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+                }
+                catch (NumberFormatException e) {
+                    txtBACResult.setText("Provided values are incorrect");
+                }
             }
         });
     }
