@@ -97,11 +97,20 @@ public class MainActivity extends AppCompatActivity {
                     Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
                     txtBACResult.setText(String.valueOf(Calculations.CalculateBAC(body,
                             Integer.valueOf(txtEthanolIntake.getText().toString()), 1))); //hardcoded drinkingSpan WIP
-                    
-//                     WIP
-//                    txtSoberUpResult.setText("You will get sober in: " + "blah");
-//                    Calculations.CalculateMinSoberingUpTime(body, Integer.valueOf(txtEthanolIntake.getText().toString()));
-//                    Calculations.CalculateMaxSoberingUpTime(body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+
+                    double resultMin = Calculations.CalculateMinSoberingUpTime
+                            (body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+
+                    double resultMax = Calculations.CalculateMaxSoberingUpTime
+                                    (body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+
+                    txtSoberUpResult.setText(
+                            ConvertDoubleToTimeString(Calculations.CalculateMinSoberingUpTime
+                                        (body, Integer.valueOf(txtEthanolIntake.getText().toString())))
+                            + " - " +
+                            ConvertDoubleToTimeString(Calculations.CalculateMaxSoberingUpTime
+                                        (body, Integer.valueOf(txtEthanolIntake.getText().toString())))
+                    );
                 }
                 catch (NumberFormatException e) {
                     txtBACResult.setText("Provided values are incorrect");
@@ -109,4 +118,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private String ConvertDoubleToTimeString(double value) {
+        String result = (int) Math.floor(value) + " h " +
+                        (int) Math.floor(((value - Math.floor(value)) * 60))
+                        + " min";
+        return result;
+    };
 }

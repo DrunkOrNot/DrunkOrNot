@@ -10,10 +10,10 @@ public class Calculations {
     };
 
     public static double CalculateMinSoberingUpTime(Body body, int ethanolMass) {
-        return ethanolMass / body.mass * 0.11d ;
+        return (double) ethanolMass / ((double) body.mass * 0.11d );
     };
 
     public static double CalculateMaxSoberingUpTime(Body body, int ethanolMass) {
-        return ethanolMass / body.mass * 0.9d ;
+        return (double) ethanolMass / ((double) body.mass * 0.09d );
     };
 }
