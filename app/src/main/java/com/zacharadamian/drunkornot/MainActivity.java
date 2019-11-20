@@ -19,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     TextView txtData;
@@ -67,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDatabase = FirebaseDatabase.getInstance().getReference().child("sensor");
+                mDatabase = FirebaseDatabase.getInstance().getReference().child("MQ3");
                 Query last = mDatabase.orderByKey().limitToLast(1);
                 last.addValueEventListener(new ValueEventListener() {
                     @SuppressLint("SetTextI18n")
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String result = ds.getValue().toString();
+                            String result = Objects.requireNonNull(ds.child("ethanol").child("GAS_ALC").getValue()).toString();
                             txtData.setText(result);
                         }
                     }
@@ -88,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 Sex sex = spSex.getSelectedItem().equals("Male") ? Sex.Male : Sex.Female;
@@ -124,5 +127,5 @@ public class MainActivity extends AppCompatActivity {
                         (int) Math.floor(((value - Math.floor(value)) * 60))
                         + " min";
         return result;
-    };
+    }
 }
