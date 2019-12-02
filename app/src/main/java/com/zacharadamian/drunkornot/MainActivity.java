@@ -20,6 +20,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Objects;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnGo;
     Spinner spSex;
     EditText txtMass;
+    Button btnSelectAlcohol;
     EditText txtEthanolIntake;
     Button btnCalculate;
     TextView txtBACResult;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalculate = findViewById(R.id.btnCalculate);
         txtBACResult = findViewById(R.id.txtBACResult);
         txtSoberUpResult = findViewById(R.id.txtSoberingUpTimeResult);
+        btnSelectAlcohol = findViewById(R.id.btnSelectAlcohol);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,14 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        btnSelectAlcohol.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.startActivity(new Intent(MainActivity.this, AlcoholChooseActivity.class));
+            }
+            });
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
