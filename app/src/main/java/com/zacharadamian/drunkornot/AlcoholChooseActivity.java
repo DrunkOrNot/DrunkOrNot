@@ -2,15 +2,13 @@ package com.zacharadamian.drunkornot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedMap;
 import java.util.TreeMap;
 
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ArrayAdapter;
 
 import android.os.Bundle;
@@ -78,6 +76,7 @@ public class AlcoholChooseActivity extends AppCompatActivity {
     Spinner count12;
     Spinner count13;
 
+    int activeControlsCount = 0; // is set in initControlsWithData();
     ArrayList<TextView> alcoholDescriptionCtrls;
     ArrayList<Spinner> alcoholAmountCtrls;
     ArrayList<Spinner> countCtrls;
@@ -147,23 +146,32 @@ public class AlcoholChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alcohol_choose);
         this.setTitle("Select what you drank");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initData();
         constructControls();
-        initControlsWithData();    }
+        initControlsWithData();
+
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText txtEthanolIntake = findViewById(R.id.editTextEthanolIntake);
+                txtEthanolIntake.setText(String.valueOf(getEthanolAmountFromView()));
+            }});
+
+    }
 
     private void initControlsWithData() {
 
-        int controlsToFill = alcohols.size() <= alcoholDescriptionCtrls.size() ? alcohols.size() : alcoholDescriptionCtrls.size();
+        activeControlsCount = alcohols.size() <= alcoholDescriptionCtrls.size() ? alcohols.size() : alcoholDescriptionCtrls.size();
 
         int counterLimit = 20;
         ArrayList<Integer> counts = new ArrayList<Integer>(counterLimit);
         for(int i = 0; i < counterLimit; i++)
             counts.add(i);
 
-        for(int i = 0; i < controlsToFill; i++) {
+        for(int i = 0; i < activeControlsCount; i++) {
             // Set descriptions
             alcoholDescriptionCtrls.get(i).setText(alcohols.get(i).description);
-
 
             // Set amount spinner
             ArrayList<String> spinnerData = new ArrayList<String>(alcohols.get(i).contents.size());
@@ -191,11 +199,32 @@ public class AlcoholChooseActivity extends AppCompatActivity {
         }
 
         // Set unused controls invisible
-        for(int i = controlsToFill; i < alcoholDescriptionCtrls.size(); i++) {
+        for(int i = activeControlsCount; i < alcoholDescriptionCtrls.size(); i++) {
             alcoholDescriptionCtrls.get(i).setVisibility(View.INVISIBLE);
             alcoholAmountCtrls.get(i).setVisibility(View.INVISIBLE);
             countCtrls.get(i).setVisibility(View.INVISIBLE);
         }
+    }
+
+    private Double getEthanolAmountFromView() {
+        Double ethanol = 0.0;
+        for(int i = 0; i < activeControlsCount; i++)
+        {
+            Integer countVal = Integer.valueOf(countCtrls.get(i).getSelectedItem().toString());
+            if(countVal > 0) {
+                String amountStr = alcoholAmountCtrls.get(i).getSelectedItem().toString();
+                Integer amount = Integer.valueOf(amountStr.substring(0, amountStr.length() - 3));
+                String name = alcoholDescriptionCtrls.get(i).getText().toString();
+
+                for (Alcohol alcohol : alcohols) {
+                    if(alcohol.description.equals(name)) {
+                        ethanol += alcohol.contents.get(amount) * countVal;
+                    };
+                }
+            }
+        }
+
+        return ethanol;
     }
 
     private void constructControls() {
