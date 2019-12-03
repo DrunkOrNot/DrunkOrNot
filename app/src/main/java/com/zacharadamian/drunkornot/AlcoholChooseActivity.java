@@ -10,6 +10,7 @@ import java.util.TreeMap;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Button;
 import android.widget.ArrayAdapter;
 
 import android.os.Bundle;
@@ -23,6 +24,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class AlcoholChooseActivity extends AppCompatActivity {
+
+    Button btnConfirm;
 
     //---ALCOHOL DESCRIPTIONS
 
@@ -58,16 +61,27 @@ public class AlcoholChooseActivity extends AppCompatActivity {
     Spinner amount12;
     Spinner amount13;
 
-    //---
+    //---COUNT SPINNERS
+
+    Spinner count;
+    Spinner count1;
+    Spinner count2;
+    Spinner count3;
+    Spinner count4;
+    Spinner count5;
+    Spinner count6;
+    Spinner count7;
+    Spinner count8;
+    Spinner count9;
+    Spinner count10;
+    Spinner count11;
+    Spinner count12;
+    Spinner count13;
 
     ArrayList<TextView> alcoholDescriptionCtrls;
     ArrayList<Spinner> alcoholAmountCtrls;
+    ArrayList<Spinner> countCtrls;
     ArrayList<Alcohol> alcohols;
-
-    private void initView() {
-        constructContols();
-        initControlsWithData();
-    }
 
     private ArrayList<Alcohol> initData() {
         alcohols = new ArrayList<Alcohol>(
@@ -81,6 +95,46 @@ public class AlcoholChooseActivity extends AppCompatActivity {
                             put(20, 6.09);
                             put(30, 9.13);
                             put(50, 15.22);
+                        }}),
+                        new Alcohol("Wódka 37.5%", new TreeMap<Integer, Double>() {{
+                            put(20, 6.01);
+                            put(30, 9.01);
+                            put(50, 15.02);
+                        }}),
+                        new Alcohol("Wino 15%", new TreeMap<Integer, Double>() {{
+                            put(120, 14.42);
+                            put(150, 18.03);
+                            put(200, 24.04);
+                        }}),
+                        new Alcohol("Wino 12%", new TreeMap<Integer, Double>() {{
+                            put(120, 11.54);
+                            put(150, 14.42);
+                            put(200, 19.23);
+                        }}),
+                        new Alcohol("Wino 9.5%", new TreeMap<Integer, Double>() {{
+                            put(120, 9.13);
+                            put(150, 11.42);
+                            put(200, 15.22);
+                        }}),
+                        new Alcohol("Piwo 7%", new TreeMap<Integer, Double>() {{
+                            put(330, 18.51);
+                            put(500, 28.05);
+                            put(1000, 56.09);
+                        }}),
+                        new Alcohol("Piwo 6%", new TreeMap<Integer, Double>() {{
+                            put(330, 15.87);
+                            put(500, 24.04);
+                            put(1000, 48.08);
+                        }}),
+                        new Alcohol("Piwo 5.6%", new TreeMap<Integer, Double>() {{
+                            put(330, 14.81);
+                            put(500, 22.44);
+                            put(1000, 44.87);
+                        }}),
+                        new Alcohol("Piwo 5.2%", new TreeMap<Integer, Double>() {{
+                            put(330, 13.75);
+                            put(500, 20.83);
+                            put(1000, 41.67);
                         }})
                 )
         );
@@ -92,15 +146,19 @@ public class AlcoholChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alcohol_choose);
+        this.setTitle("Select what you drank");
         initData();
-        initView();
-
-    }
+        constructControls();
+        initControlsWithData();    }
 
     private void initControlsWithData() {
 
         int controlsToFill = alcohols.size() <= alcoholDescriptionCtrls.size() ? alcohols.size() : alcoholDescriptionCtrls.size();
 
+        int counterLimit = 20;
+        ArrayList<Integer> counts = new ArrayList<Integer>(counterLimit);
+        for(int i = 0; i < counterLimit; i++)
+            counts.add(i);
 
         for(int i = 0; i < controlsToFill; i++) {
             // Set descriptions
@@ -120,14 +178,29 @@ public class AlcoholChooseActivity extends AppCompatActivity {
             );
 
             alcoholAmountCtrls.get(i).setAdapter(adapter);
+
+            // Set counter spinner
+            ArrayAdapter countAdapter = new ArrayAdapter(
+                    getApplicationContext(),
+                    android.R.layout.simple_spinner_item,
+                    counts
+            );
+
+            countCtrls.get(i).setAdapter(countAdapter);
+
         }
 
+        // Set unused controls invisible
         for(int i = controlsToFill; i < alcoholDescriptionCtrls.size(); i++) {
             alcoholDescriptionCtrls.get(i).setVisibility(View.INVISIBLE);
+            alcoholAmountCtrls.get(i).setVisibility(View.INVISIBLE);
+            countCtrls.get(i).setVisibility(View.INVISIBLE);
         }
     }
 
-    private void constructContols() {
+    private void constructControls() {
+
+        btnConfirm = findViewById(R.id.btnConfirm);
 
         //---ALCOHOL DESCRIPTIONS
 
@@ -194,6 +267,39 @@ public class AlcoholChooseActivity extends AppCompatActivity {
         alcoholAmountCtrls.add(amount11);
         alcoholAmountCtrls.add(amount12);
         alcoholAmountCtrls.add(amount13);
+
+        // COUNT SPINNERS
+
+        count = findViewById(R.id.spinner02);
+        count1 = findViewById(R.id.spinner12);
+        count2 = findViewById(R.id.spinner22);
+        count3 = findViewById(R.id.spinner32);
+        count4 = findViewById(R.id.spinner42);
+        count5 = findViewById(R.id.spinner52);
+        count6 = findViewById(R.id.spinner62);
+        count7 = findViewById(R.id.spinner72);
+        count8 = findViewById(R.id.spinner82);
+        count9 = findViewById(R.id.spinner92);
+        count10 = findViewById(R.id.spinner102);
+        count11 = findViewById(R.id.spinner112);
+        count12 = findViewById(R.id.spinner122);
+        count13 = findViewById(R.id.spinner132);
+
+        countCtrls = new ArrayList<Spinner>(14);
+        countCtrls.add(count);
+        countCtrls.add(count1);
+        countCtrls.add(count2);
+        countCtrls.add(count3);
+        countCtrls.add(count4);
+        countCtrls.add(count5);
+        countCtrls.add(count6);
+        countCtrls.add(count7);
+        countCtrls.add(count8);
+        countCtrls.add(count9);
+        countCtrls.add(count10);
+        countCtrls.add(count11);
+        countCtrls.add(count12);
+        countCtrls.add(count13);
 
     }
 
