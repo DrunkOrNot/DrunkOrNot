@@ -2,6 +2,8 @@ package com.zacharadamian.drunkornot;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -55,20 +57,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = ArrayAdapter.createFromResource(this,
                 R.array.sex_array, android.R.layout.simple_dropdown_item_1line);
         spSex.setAdapter(adapter);
-        spSex.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (spSex.getSelectedItem().equals("male")) {
-//
-//                }else{
-//
-//                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                spSex.setSelection(0);
-            }
-        });
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +80,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        txtEthanolIntake.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Double alcoholIntake = Double.valueOf(txtEthanolIntake.getText().toString());
+                if(alcoholIntake != 0.0)
+                    Ethanol.SetEthanolIntake(alcoholIntake);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Do nothing
+            }
+        });
+
         btnSelectAlcohol.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -110,20 +117,20 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
                     txtBACResult.setText(String.valueOf(Calculations.CalculateBAC(body,
-                            Integer.valueOf(txtEthanolIntake.getText().toString()), 1))); //hardcoded drinkingSpan WIP
+                            Ethanol.GetEthanolIntake(), 1))); //hardcoded drinkingSpan WIP
 
                     double resultMin = Calculations.CalculateMinSoberingUpTime
-                            (body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+                            (body, Ethanol.GetEthanolIntake());
 
                     double resultMax = Calculations.CalculateMaxSoberingUpTime
-                                    (body, Integer.valueOf(txtEthanolIntake.getText().toString()));
+                                    (body, Ethanol.GetEthanolIntake());
 
                     txtSoberUpResult.setText(
                             ConvertDoubleToTimeString(Calculations.CalculateMinSoberingUpTime
-                                        (body, Integer.valueOf(txtEthanolIntake.getText().toString())))
+                                        (body, Ethanol.GetEthanolIntake()))
                             + " - " +
                             ConvertDoubleToTimeString(Calculations.CalculateMaxSoberingUpTime
-                                        (body, Integer.valueOf(txtEthanolIntake.getText().toString())))
+                                        (body, Ethanol.GetEthanolIntake()))
                     );
                 }
                 catch (NumberFormatException e) {
@@ -134,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String ConvertDoubleToTimeString(double value) {
+        if (value == 0.0)
+            return "0 min";
+
         String result = (int) Math.floor(value) + " h " +
                         (int) Math.floor(((value - Math.floor(value)) * 60))
                         + " min";

@@ -154,8 +154,9 @@ public class AlcoholChooseActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText txtEthanolIntake = findViewById(R.id.editTextEthanolIntake);
-                txtEthanolIntake.setText(String.valueOf(getEthanolAmountFromView()));
+                Ethanol.SetEthanolIntake(getEthanolAmountFromView());
+                setResult(AlcoholChooseActivity.RESULT_OK, getIntent());
+                finish();
             }});
 
     }

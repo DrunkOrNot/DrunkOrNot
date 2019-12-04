@@ -48,19 +48,26 @@
                     android:text="Enter Alcohol Intake:"
                     tools:text="Enter Alcohol Intake:" />
 
-                <Button
-                    android:id="@+id/btnSelectAlcohol"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Select Alcohol"
-                    tools:text="Select Alcohol" />
-
                 <EditText
                     android:id="@+id/editTextEthanolIntake"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/textAlcoholDescription2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="or"
+                    tools:text="or" />
+
+                <Button
+                    android:id="@+id/btnSelectAlcohol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Alcohol"
+                    tools:text="Select Alcohol" />
 
                 <TextView
                     android:id="@+id/textMassDescription"
