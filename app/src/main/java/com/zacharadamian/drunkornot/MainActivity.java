@@ -29,25 +29,23 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     TextView txtData;
     Button btnGo;
-    Spinner spSex;
-    EditText txtMass;
     Button btnSelectAlcohol;
-    EditText txtEthanolIntake;
     Button btnCalculate;
-    TextView txtBACResult;
-    TextView txtSoberUpResult;
+    EditText txtMass;
+    EditText txtEthanolIntake;
+    Spinner spSex;
+
 
     ArrayAdapter<CharSequence> adapter;
     public void initView() {
         btnGo = findViewById(R.id.btnGo);
-        txtData = this.findViewById(R.id.txtData);
-        spSex = findViewById(R.id.spSex);
-        txtMass = findViewById(R.id.editTextMass);
-        txtEthanolIntake = findViewById(R.id.editTextEthanolIntake);
         btnCalculate = findViewById(R.id.btnCalculate);
-        txtBACResult = findViewById(R.id.txtBACResult);
-        txtSoberUpResult = findViewById(R.id.txtSoberingUpTimeResult);
         btnSelectAlcohol = findViewById(R.id.btnSelectAlcohol);
+        txtData = this.findViewById(R.id.txtData);
+        txtMass = findViewById(R.id.txtMass);
+        txtEthanolIntake = findViewById(R.id.txtEthanolIntake);
+        spSex = findViewById(R.id.spSex);
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
