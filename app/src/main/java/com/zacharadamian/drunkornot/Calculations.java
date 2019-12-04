@@ -4,9 +4,9 @@ public class Calculations {
     //BAC - Blood Alcohol Content (https://en.wikipedia.org/wiki/Blood_alcohol_content)
     //ethanolMass in grams [g]
     public static Double CalculateBAC(Body body, Double ethanolMass, int drinkingSpan) {
-        return (( (0.806d  * 1.2d * (ethanolMass / 10.0d) )
+        return ((( (0.806d  * 1.2d * (ethanolMass / 10.0d) )
                 / (body.GetWaterConstant() * body.mass) )
-                - (body.GetMetabolicConstant() * drinkingSpan)) * 0.9d;
+                - (body.GetMetabolicConstant() * drinkingSpan)) * 0.9d) * 10.2;
     };
 
     public static Double CalculateMinSoberingUpTime(Body body, Double ethanolMass) {

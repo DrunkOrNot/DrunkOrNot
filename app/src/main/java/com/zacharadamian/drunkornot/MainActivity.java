@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -113,31 +114,47 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Sex sex = spSex.getSelectedItem().equals("Male") ? Sex.Male : Sex.Female;
 
-                //Huge trycatch WIP
                 try {
                     Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
-                    txtBACResult.setText(String.valueOf(Calculations.CalculateBAC(body,
-                            Ethanol.GetEthanolIntake(), 1))); //hardcoded drinkingSpan WIP
+                    Double bac = Calculations.CalculateBAC(body,
+                            Ethanol.GetEthanolIntake(), 1); //hardcoded drinkingSpan WIP
 
-                    double resultMin = Calculations.CalculateMinSoberingUpTime
+                    double minTime = Calculations.CalculateMinSoberingUpTime
                             (body, Ethanol.GetEthanolIntake());
 
-                    double resultMax = Calculations.CalculateMaxSoberingUpTime
+                    double maxTime = Calculations.CalculateMaxSoberingUpTime
                                     (body, Ethanol.GetEthanolIntake());
 
-                    txtSoberUpResult.setText(
-                            ConvertDoubleToTimeString(Calculations.CalculateMinSoberingUpTime
-                                        (body, Ethanol.GetEthanolIntake()))
-                            + " - " +
-                            ConvertDoubleToTimeString(Calculations.CalculateMaxSoberingUpTime
-                                        (body, Ethanol.GetEthanolIntake()))
-                    );
+                    DisplayAlertWithText(FormatCalculationResultForAlert(body, bac, minTime, maxTime));
                 }
                 catch (NumberFormatException e) {
-                    txtBACResult.setText("Provided values are incorrect");
+                    DisplayAlertWithText("Provided values are incorrect");
                 }
             }
         });
+    }
+
+    private String FormatCalculationResultForAlert(Body body, Double bac, Double minTime, Double maxTIme) {
+        String result = "Your Blood Alcohol Content is:\n";
+        result += String.format("%.2f", bac) + "\n";
+        result += "You will sober up in:\n";
+        result += ConvertDoubleToTimeString(minTime)
+                        + " - " + ConvertDoubleToTimeString(maxTIme);
+        return result;
+
+    }
+
+    private void DisplayAlertWithText(String text) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage(text);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface arg0, int arg1) {
+                            }
+                        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 
     private String ConvertDoubleToTimeString(double value) {
