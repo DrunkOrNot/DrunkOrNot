@@ -49,11 +49,25 @@
                     tools:text="Enter Alcohol Intake:" />
 
                 <EditText
-                    android:id="@+id/editTextEthanolIntake"
+                    android:id="@+id/txtEthanolIntake"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/textAlcoholDescription2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="or"
+                    tools:text="or" />
+
+                <Button
+                    android:id="@+id/btnSelectAlcohol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Select Alcohol"
+                    tools:text="Select Alcohol" />
 
                 <TextView
                     android:id="@+id/textMassDescription"
@@ -63,7 +77,7 @@
                     tools:text="Enter your mass:" />
 
                 <EditText
-                    android:id="@+id/editTextMass"
+                    android:id="@+id/txtMass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -90,30 +104,6 @@
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
                     android:text="CALCULATE" />
-
-                <TextView
-                    android:id="@+id/textBACDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your Alcohol Concentration:"
-                    tools:text="Your Alcohol Concentration:" />
-
-                <TextView
-                    android:id="@+id/txtBACResult"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:id="@+id/textSoberUpTimeDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="You will get sober in:"
-                    tools:text="You will get sober in:" />
-
-                <TextView
-                    android:id="@+id/txtSoberingUpTimeResult"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
             </LinearLayout>
         </ScrollView>
