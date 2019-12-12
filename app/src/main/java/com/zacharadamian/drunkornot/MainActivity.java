@@ -21,7 +21,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.okhttp.Call;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.FutureTask;
+
+import java.io.IOException;
 import java.util.Objects;
 import android.content.Intent;
 
@@ -29,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     TextView txtData;
     Button btnGo;
+    Button btnSensor;
     Button btnSelectAlcohol;
     Button btnCalculate;
     EditText txtMass;
@@ -40,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     public void initView() {
         btnGo = findViewById(R.id.btnGo);
         btnCalculate = findViewById(R.id.btnCalculate);
+        btnSensor = findViewById(R.id.btnSensor);
         btnSelectAlcohol = findViewById(R.id.btnSelectAlcohol);
         txtData = this.findViewById(R.id.txtData);
         txtMass = findViewById(R.id.txtMass);
@@ -66,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String result = Objects.requireNonNull(ds.child("ethanol").child("GAS_ALC").getValue()).toString();
+                            String result = Objects.requireNonNull(ds.child("ethanol").getValue()).toString();
                             txtData.setText(result);
                         }
                     }
@@ -105,6 +118,39 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(new Intent(MainActivity.this, AlcoholChooseActivity.class));
             }
             });
+
+        btnSensor.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View v) {
+                OkHttpClient client = new OkHttpClient();
+
+                MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+
+                RequestBody body = RequestBody.create(mediaType, "on_click_button=true");
+
+                Request request = new Request.Builder()
+                        .url("http://192.168.1.56:8080/mq/info.php")
+                        .post(body)
+                        .addHeader("Content-Type", "application/x-www-form-urlencoded")
+                        .addHeader("Accept", "*/*")
+                        .addHeader("Cache-Control", "no-cache")
+                        .addHeader("Host", "192.168.1.56:8080")
+                        .addHeader("Accept-Encoding", "gzip, deflate")
+                        .addHeader("Connection", "keep-alive")
+                        .addHeader("cache-control", "no-cache")
+                        .build();
+
+                Call call = client.newCall(request);
+                CompletableFuture.runAsync(() -> {
+                    try {
+                        Response response = call.execute();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+
+            }});
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")

@@ -41,6 +41,16 @@
                     android:minWidth="250dp"
                     android:text="GO" />
 
+                <Button
+                    android:id="@+id/btnSensor"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="2dp"
+                    android:background="#FF334B"
+                    android:minWidth="250dp"
+                    android:text="START SENSOR" />
+
                 <TextView
                     android:id="@+id/textAlcoholDescription"
                     android:layout_width="match_parent"
