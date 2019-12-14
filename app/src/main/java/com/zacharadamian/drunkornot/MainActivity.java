@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnCalculate;
     EditText txtMass;
     EditText txtEthanolIntake;
+    EditText txtIpAddress;
     Spinner spSex;
-
 
     ArrayAdapter<CharSequence> adapter;
     public void initView() {
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         btnSelectAlcohol = findViewById(R.id.btnSelectAlcohol);
         txtData = this.findViewById(R.id.txtData);
         txtMass = findViewById(R.id.txtMass);
+        txtIpAddress = findViewById(R.id.txtIpAddress);
         txtEthanolIntake = findViewById(R.id.txtEthanolIntake);
         spSex = findViewById(R.id.spSex);
 
@@ -123,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
+
+                String raspberryIP = String.valueOf(txtIpAddress.getText());
                 OkHttpClient client = new OkHttpClient();
 
                 MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
@@ -130,12 +133,12 @@ public class MainActivity extends AppCompatActivity {
                 RequestBody body = RequestBody.create(mediaType, "on_click_button=true");
 
                 Request request = new Request.Builder()
-                        .url("http://192.168.1.56:8080/mq/info.php")
+                        .url("http://" + raspberryIP + "/mq/info.php")
                         .post(body)
                         .addHeader("Content-Type", "application/x-www-form-urlencoded")
                         .addHeader("Accept", "*/*")
                         .addHeader("Cache-Control", "no-cache")
-                        .addHeader("Host", "192.168.1.56:8080")
+                        .addHeader("Host", raspberryIP)
                         .addHeader("Accept-Encoding", "gzip, deflate")
                         .addHeader("Connection", "keep-alive")
                         .addHeader("cache-control", "no-cache")
@@ -145,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 CompletableFuture.runAsync(() -> {
                     try {
                         Response response = call.execute();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

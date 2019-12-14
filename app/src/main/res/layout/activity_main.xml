@@ -31,6 +31,14 @@
                     android:textStyle="bold"
                     tools:text="@tools:sample/cities" />
 
+                <EditText
+                    android:id="@+id/txtIpAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:digits="0123456789."
+                    android:inputType="number|numberDecimal" />
+
                 <Button
                     android:id="@+id/btnGo"
                     android:layout_width="match_parent"
