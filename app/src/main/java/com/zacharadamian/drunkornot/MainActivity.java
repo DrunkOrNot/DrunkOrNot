@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -22,15 +23,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.FutureTask;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txtEthanolIntake;
     EditText txtIpAddress;
     Spinner spSex;
+    ImageButton btnInfo;
 
     ArrayAdapter<CharSequence> adapter;
     public void initView() {
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         txtIpAddress = findViewById(R.id.txtIpAddress);
         txtEthanolIntake = findViewById(R.id.txtEthanolIntake);
         spSex = findViewById(R.id.spSex);
+        btnInfo = findViewById(R.id.btnInfo);
 
     }
     @Override
@@ -101,7 +105,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                Double alcoholIntake = Double.valueOf(txtEthanolIntake.getText().toString());
+                if(String.valueOf(txtEthanolIntake.getText()).equals(("")))
+                    return;
+                Double alcoholIntake = Double.valueOf(String.valueOf(txtEthanolIntake.getText()));
                 if(alcoholIntake != 0.0)
                     Ethanol.SetEthanolIntake(alcoholIntake);
             }
@@ -160,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                Sex sex = spSex.getSelectedItem().equals("Male") ? Sex.Male : Sex.Female;
+                Sex sex = spSex.getSelectedItemPosition() == 0 ? Sex.Male : Sex.Female;
 
                 try {
                     Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
@@ -173,19 +179,42 @@ public class MainActivity extends AppCompatActivity {
                     double maxTime = Calculations.CalculateMaxSoberingUpTime
                                     (body, Ethanol.GetEthanolIntake());
 
-                    DisplayAlertWithText(FormatCalculationResultForAlert(body, bac, minTime, maxTime));
+                    DisplayAlertWithText(FormatCalculationResultForAlert(bac, minTime, maxTime));
                 }
                 catch (NumberFormatException e) {
-                    DisplayAlertWithText("Provided values are incorrect");
+                    DisplayAlertWithText(getString(R.string.str_incorrectValues));
                 }
+            }
+        });
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String alertTxt = getString(R.string.str_authors) + "\n";
+                //
+                StringBuffer stringBuffer = new StringBuffer();
+                InputStream is = getResources().openRawResource(R.raw.info);
+                BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(is));
+                try {
+                    String data;
+                    while ((data = bufferedreader.readLine()) != null) {
+                        alertTxt += data;
+                        alertTxt += "\n";
+                    }
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                DisplayAlertWithText(alertTxt);
             }
         });
     }
 
-    private String FormatCalculationResultForAlert(Body body, Double bac, Double minTime, Double maxTIme) {
-        String result = "Your Blood Alcohol Content is:\n";
-        result += String.format("%.2f", bac) + "\n";
-        result += "You will sober up in:\n";
+    private String FormatCalculationResultForAlert(Double bac, Double minTime, Double maxTIme) {
+        String result = getString(R.string.str_bacResult) + "\n";
+        result += String.format("%.2f", bac) + "‰\n";
+        result += getString(R.string.str_soberUpTime) + "\n";
         result += ConvertDoubleToTimeString(minTime)
                         + " - " + ConvertDoubleToTimeString(maxTIme);
         return result;
@@ -209,9 +238,8 @@ public class MainActivity extends AppCompatActivity {
         if (value == 0.0)
             return "0 min";
 
-        String result = (int) Math.floor(value) + " h " +
-                        (int) Math.floor(((value - Math.floor(value)) * 60))
-                        + " min";
-        return result;
+        return  (int) Math.floor(value) + " h " +
+                (int) Math.floor(((value - Math.floor(value)) * 60))
+                + " min";
     }
 }

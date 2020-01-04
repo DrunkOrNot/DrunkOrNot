@@ -348,7 +348,7 @@
                 android:id="@+id/btnConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm" />
+                android:text="@string/str_confirm" />
 
         </LinearLayout>
     </ScrollView>

@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".NextActivity"></activity>
         <activity
             android:name=".AlcoholChooseActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/title_activity_alcohol_choose"></activity>
+            android:label="@string/title_activity_alcohol_choose"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

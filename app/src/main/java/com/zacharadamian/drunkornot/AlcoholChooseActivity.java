@@ -85,52 +85,52 @@ public class AlcoholChooseActivity extends AppCompatActivity {
     private ArrayList<Alcohol> initData() {
         alcohols = new ArrayList<Alcohol>(
                 Arrays.asList(
-                        new Alcohol("Wódka 40%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol), new TreeMap<Integer, Double>() {{
                             put(20, 6.41);
                             put(30, 9.62);
                             put(50, 16.03);
                         }}),
-                        new Alcohol("Wódka 38%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol1), new TreeMap<Integer, Double>() {{
                             put(20, 6.09);
                             put(30, 9.13);
                             put(50, 15.22);
                         }}),
-                        new Alcohol("Wódka 37.5%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol2), new TreeMap<Integer, Double>() {{
                             put(20, 6.01);
                             put(30, 9.01);
                             put(50, 15.02);
                         }}),
-                        new Alcohol("Wino 15%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol3), new TreeMap<Integer, Double>() {{
                             put(120, 14.42);
                             put(150, 18.03);
                             put(200, 24.04);
                         }}),
-                        new Alcohol("Wino 12%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol4), new TreeMap<Integer, Double>() {{
                             put(120, 11.54);
                             put(150, 14.42);
                             put(200, 19.23);
                         }}),
-                        new Alcohol("Wino 9.5%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol5), new TreeMap<Integer, Double>() {{
                             put(120, 9.13);
                             put(150, 11.42);
                             put(200, 15.22);
                         }}),
-                        new Alcohol("Piwo 7%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol6), new TreeMap<Integer, Double>() {{
                             put(330, 18.51);
                             put(500, 28.05);
                             put(1000, 56.09);
                         }}),
-                        new Alcohol("Piwo 6%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol7), new TreeMap<Integer, Double>() {{
                             put(330, 15.87);
                             put(500, 24.04);
                             put(1000, 48.08);
                         }}),
-                        new Alcohol("Piwo 5.6%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol8), new TreeMap<Integer, Double>() {{
                             put(330, 14.81);
                             put(500, 22.44);
                             put(1000, 44.87);
                         }}),
-                        new Alcohol("Piwo 5.2%", new TreeMap<Integer, Double>() {{
+                        new Alcohol(getString(R.string.str_txtAlcohol9), new TreeMap<Integer, Double>() {{
                             put(330, 13.75);
                             put(500, 20.83);
                             put(1000, 41.67);
@@ -145,7 +145,7 @@ public class AlcoholChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alcohol_choose);
-        this.setTitle("Select what you drank");
+        this.setTitle(getString(R.string.str_selectAlcoholHeader));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initData();
         constructControls();
