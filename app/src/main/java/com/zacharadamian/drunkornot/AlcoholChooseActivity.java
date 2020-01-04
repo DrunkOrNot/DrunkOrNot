@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -155,6 +156,7 @@ public class AlcoholChooseActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Ethanol.SetEthanolIntake(getEthanolAmountFromView());
+                AlcoholChooseActivity.this.startActivity(new Intent(AlcoholChooseActivity.this, NextActivity.class));
                 setResult(AlcoholChooseActivity.RESULT_OK, getIntent());
                 finish();
             }});

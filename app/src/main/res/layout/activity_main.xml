@@ -20,52 +20,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
 
-                <TextView
-                    android:id="@+id/txtData"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="36sp"
-                    android:textStyle="bold"
-                    tools:text="@tools:sample/cities" />
-
-                <TextView
-                    android:id="@+id/textEnterRaspberryIP"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_enterDeviceIP" />
-
-                <EditText
-                    android:id="@+id/txtIpAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:digits="0123456789."
-                    android:ems="10"
-                    android:inputType="number|numberDecimal"
-                    android:text="192.168.1.56"
-                    tools:text="192.168.1.56" />
-
                 <Button
                     android:id="@+id/btnSensor"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="2dp"
-                    android:background="#FF334B"
-                    android:minWidth="250dp"
-                    android:text="@string/str_btnStartSensor" />
-
-                <Button
-                    android:id="@+id/btnGo"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
-                    android:text="@string/str_btnFetchData" />
+                    android:text="@string/str_btnCalculate"
+                    tools:text="SENSOR" />
 
                 <TextView
                     android:id="@+id/textAlcoholDescription"
@@ -81,51 +45,27 @@
                     android:ems="10"
                     android:inputType="number" />
 
-                <TextView
-                    android:id="@+id/textAlcoholDescription2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_or" />
-
                 <Button
-                    android:id="@+id/btnSelectAlcohol"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_btnSelectAlcohol" />
-
-                <TextView
-                    android:id="@+id/textMassDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_enterMass" />
-
-                <EditText
-                    android:id="@+id/txtMass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number" />
-
-                <TextView
-                    android:id="@+id/textSexDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/str_selectSex" />
-
-                <Spinner
-                    android:id="@+id/spSex"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/btnCalculate"
+                    android:id="@+id/btnManual"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
-                    android:text="@string/str_btnCalculate" />
+                    android:text="@string/str_btnCalculate"
+                    tools:text="MANUAL" />
+
+                <Button
+                    android:id="@+id/btnSelectAlcohol"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="2dp"
+                    android:background="@android:color/holo_orange_light"
+                    android:minWidth="250dp"
+                    android:text="@string/str_btnCalculate"
+                    tools:text="SELECT FROM LIST" />
 
                 <ImageButton
                     android:id="@+id/btnInfo"

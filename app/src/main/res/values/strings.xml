@@ -6,6 +6,8 @@
         <item>Female</item>
     </string-array>
     <string name="title_activity_alcohol_choose" translatable="false">AlcoholChooseActivity</string>
+    <string name="title_activity_next" translatable="false">NextActivity</string>
+    <string name="title_activity_sensor" translatable="false">SensorActivity</string>
     <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard" translatable="false">Dashboard</string>
     <string name="title_notifications" translatable="false">Notifications</string>
