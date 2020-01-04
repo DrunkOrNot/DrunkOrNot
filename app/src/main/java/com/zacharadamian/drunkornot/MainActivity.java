@@ -2,6 +2,8 @@ package com.zacharadamian.drunkornot;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -40,27 +42,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
 
-        txtEthanolIntake.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                //Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(String.valueOf(txtEthanolIntake.getText()).equals(("")))
-                    return;
-                Double alcoholIntake = Double.valueOf(String.valueOf(txtEthanolIntake.getText()));
-                if(alcoholIntake != 0.0)
-                    Ethanol.SetEthanolIntake(alcoholIntake);
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // Do nothing
-            }
-        });
-
         btnSelectAlcohol.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -80,7 +61,13 @@ public class MainActivity extends AppCompatActivity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                MainActivity.this.startActivity(new Intent(MainActivity.this, NextActivity.class));
+                if(String.valueOf(txtEthanolIntake.getText()).equals(("")) || txtEthanolIntake.toString() == null) {
+                    UIHelper.DisplayAlertWithText(getString(R.string.str_incorrectValues), currentWindow);
+                }
+                else {
+                    Ethanol.SetEthanolIntake(Double.valueOf(String.valueOf(txtEthanolIntake.getText())));
+                    MainActivity.this.startActivity(new Intent(MainActivity.this, NextActivity.class));
+                }
             }});
 
         btnInfo.setOnClickListener(new View.OnClickListener() {

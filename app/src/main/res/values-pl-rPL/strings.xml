@@ -17,11 +17,11 @@
     <string name="str_txtAlcohol9">Piwo 5.2%</string>
     <string name="str_confirm">Potwierdź</string>
     <string name="str_selectAlcoholHeader">Wybierz co wypiłeś</string>
-    <string name="str_btnCalculate">Oblicz</string>
+    <string name="str_btnCalculate">Oblicz czas spalania</string>
     <string name="str_btnFetchData">Pobierz Wynik</string>
     <string name="str_btnSelectAlcohol">Wybierz Alkohol</string>
     <string name="str_btnStartSensor">Uruchom Czujnik</string>
-    <string name="str_enterAlcoholIntake">Podaj ile wypiłeś</string>
+    <string name="str_enterAlcoholIntake">Podaj ile wypiłeś w [g]:</string>
     <string name="str_enterDeviceIP">Podaj IP urządzenia</string>
     <string name="str_enterMass">Podaj ile ważysz</string>
     <string name="str_or">lub</string>
@@ -32,5 +32,5 @@
     <string name="str_authors">Autorzy</string>
     <string name="str_btnSensor">Użyj czujnika</string>
     <string name="str_btnNext">Dalej</string>
-    <string name="str_btnManual">Wprowadź ilość</string>
+    <string name="str_btnManual">Zatwierdź wartość</string>
 </resources>

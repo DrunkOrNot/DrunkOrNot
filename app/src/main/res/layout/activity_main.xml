@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#FBF3FB"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -22,52 +23,67 @@
 
                 <Button
                     android:id="@+id/btnSensor"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_width="330dp"
+                    android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="2dp"
-                    android:background="@android:color/holo_orange_light"
-                    android:minWidth="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_select"
+                    android:padding="20dp"
+                    android:drawableLeft="@drawable/sensor"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:text="@string/str_btnSensor" />
 
                 <TextView
                     android:id="@+id/textAlcoholDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:text="@string/str_enterAlcoholIntake"
+                    android:textAlignment="center"
                     tools:text="Enter Alcohol Intake:" />
 
                 <EditText
                     android:id="@+id/txtEthanolIntake"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textAlignment="center" />
 
                 <Button
                     android:id="@+id/btnManual"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_width="330dp"
+                    android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="2dp"
-                    android:background="@android:color/holo_orange_light"
-                    android:minWidth="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_select"
+                    android:padding="20dp"
+                    android:drawableLeft="@drawable/enter"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:text="@string/str_btnManual" />
 
                 <Button
                     android:id="@+id/btnSelectAlcohol"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_width="330dp"
+                    android:layout_height="90dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_margin="2dp"
-                    android:background="@android:color/holo_orange_light"
-                    android:minWidth="250dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/button_select"
+                    android:padding="20dp"
+                    android:drawableLeft="@drawable/select"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:text="@string/str_btnSelectAlcohol" />
 
                 <ImageButton
                     android:id="@+id/btnInfo"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_select"
                     app:srcCompat="@android:drawable/ic_dialog_info" />
 
             </LinearLayout>
