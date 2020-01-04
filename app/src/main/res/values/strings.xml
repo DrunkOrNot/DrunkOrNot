@@ -11,16 +11,18 @@
     <string name="title_home" translatable="false">Home</string>
     <string name="title_dashboard" translatable="false">Dashboard</string>
     <string name="title_notifications" translatable="false">Notifications</string>
+    <string name="str_empty" translatable="false"></string>
     <string name="str_enterDeviceIP" translatable="true">Enter device IP</string>
     <string name="str_enterAlcoholIntake" translatable="true">Enter alcohol intake</string>
-    <string name="str_or" translatable="true">Or</string>
     <string name="str_enterMass" translatable="true">Enter your mass</string>
     <string name="str_selectSex" translatable="true">Select your biological sex</string>
-    <string name="str_confirm" translatable="true">Confirm</string>
     <string name="str_btnStartSensor" translatable="true">Start Sensor</string>
     <string name="str_btnFetchData" translatable="true">Fetch Data</string>
+    <string name="str_btnManual" translatable="true">Enter Value</string>
+    <string name="str_btnSensor" translatable="true">Use Sensor</string>
     <string name="str_btnSelectAlcohol" translatable="true">Select Alcohol</string>
     <string name="str_btnCalculate" translatable="true">Calculate</string>
+    <string name="str_btnNext" translatable="true">Next</string>
     <string name="str_authors" translatable="true">Authors</string>
 
     <string name="str_selectAlcoholHeader" translatable="true">Select what you drank</string>

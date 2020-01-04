@@ -8,8 +8,9 @@ enum Sex {
 
 public class Body {
 
-    public Sex sex = Sex.Male;;
-    public int mass =  -1; // in kg
+    public Sex sex = Sex.Male;
+    ;
+    public int mass = -1; // in kg
 
     Body() {
 
@@ -21,10 +22,14 @@ public class Body {
     }
 
     public double GetMetabolicConstant() {
-        return sex == Sex.Male ? 0.015d : 0.017d ;
-    };
+        return sex == Sex.Male ? 0.015d : 0.017d;
+    }
+
+    ;
 
     public double GetWaterConstant() {
         return sex == Sex.Male ? 0.58d : 0.49d;
-    };
+    }
+
+    ;
 }

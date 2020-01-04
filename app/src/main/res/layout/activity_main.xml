@@ -28,8 +28,7 @@
                     android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
-                    android:text="@string/str_btnCalculate"
-                    tools:text="SENSOR" />
+                    android:text="@string/str_btnSensor" />
 
                 <TextView
                     android:id="@+id/textAlcoholDescription"
@@ -53,8 +52,7 @@
                     android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
-                    android:text="@string/str_btnCalculate"
-                    tools:text="MANUAL" />
+                    android:text="@string/str_btnManual" />
 
                 <Button
                     android:id="@+id/btnSelectAlcohol"
@@ -64,14 +62,13 @@
                     android:layout_margin="2dp"
                     android:background="@android:color/holo_orange_light"
                     android:minWidth="250dp"
-                    android:text="@string/str_btnCalculate"
-                    tools:text="SELECT FROM LIST" />
+                    android:text="@string/str_btnSelectAlcohol" />
 
                 <ImageButton
                     android:id="@+id/btnInfo"
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/ic_dialog_info"/>
+                    app:srcCompat="@android:drawable/ic_dialog_info" />
 
             </LinearLayout>
         </ScrollView>

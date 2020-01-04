@@ -1,15 +1,14 @@
 package com.zacharadamian.drunkornot;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NextActivity extends AppCompatActivity {
     Button btnCalculate;
@@ -22,6 +21,7 @@ public class NextActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_next);
+        this.setTitle(getString(R.string.str_empty));
 
         btnCalculate = findViewById(R.id.btnCalculate);
         txtMass = findViewById(R.id.txtMass);
@@ -48,12 +48,11 @@ public class NextActivity extends AppCompatActivity {
                             (body, Ethanol.GetEthanolIntake());
 
                     double maxTime = Calculations.CalculateMaxSoberingUpTime
-                                    (body, Ethanol.GetEthanolIntake());
+                            (body, Ethanol.GetEthanolIntake());
 
                     UIHelper.DisplayAlertWithText(
                             UIHelper.FormatCalculationResultForAlert(bac, minTime, maxTime, currentWindow), currentWindow);
-                }
-                catch (NumberFormatException e) {
+                } catch (NumberFormatException e) {
                     UIHelper.DisplayAlertWithText(getString(R.string.str_incorrectValues), currentWindow);
                 }
             }

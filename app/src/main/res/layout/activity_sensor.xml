@@ -50,8 +50,7 @@
                 android:layout_margin="2dp"
                 android:background="@android:color/holo_orange_light"
                 android:minWidth="250dp"
-                android:text="@string/str_btnFetchData"
-                tools:text="START SENSOR" />
+                android:text="@string/str_btnStartSensor" />
 
             <Button
                 android:id="@+id/btnFetchData"

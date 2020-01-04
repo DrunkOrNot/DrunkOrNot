@@ -30,4 +30,7 @@
     <string name="str_bacResult">Zawartość alkoholu we krwi to:</string>
     <string name="str_soberUpTime">Wytrzeźwiejesz za:</string>
     <string name="str_authors">Autorzy</string>
+    <string name="str_btnSensor">Użyj czujnika</string>
+    <string name="str_btnNext">Dalej</string>
+    <string name="str_btnManual">Wprowadź ilość</string>
 </resources>

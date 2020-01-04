@@ -1,28 +1,21 @@
 package com.zacharadamian.drunkornot;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.EditText;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.database.DatabaseReference;
-
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
-import java.io.IOException;
-
-import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
     Button btnSensor;

@@ -2,7 +2,6 @@ package com.zacharadamian.drunkornot;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 
 import androidx.appcompat.app.AppCompatActivity;
 
