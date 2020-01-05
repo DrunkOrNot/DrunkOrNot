@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="sex_array">
+        <item>Mâle</item>
+        <item>Femelle</item>
+    </string-array>
     <string name="app_name">Drunk Or Not</string>
+    <string name="str_txtAlcohol">Vodka 40%</string>
+    <string name="str_txtAlcohol1">Vodka 38%</string>
+    <string name="str_txtAlcohol2">Vodka 37.5%</string>
+    <string name="str_txtAlcohol3">Vin 15%</string>
+    <string name="str_txtAlcohol4">Vin 12%</string>
+    <string name="str_txtAlcohol5">Vin 9.5%</string>
+    <string name="str_txtAlcohol6">Bière 7%</string>
+    <string name="str_txtAlcohol7">Bière 6%</string>
+    <string name="str_txtAlcohol8">Bière 5.6%</string>
+    <string name="str_txtAlcohol9">Bière 5.2%</string>
+    <string name="str_selectAlcoholHeader">Choisissez ce que vous avez bu</string>
+    <string name="str_btnCalculate">Calculez le temps de brûlage</string>
+    <string name="str_btnFetchData">Prenez le résultat </string>
+    <string name="str_btnSelectAlcohol">Choisissez l\'alcool</string>
+    <string name="str_btnStartSensor">Démarrer le capteur</string>
+    <string name="str_enterAlcoholIntake">Entrez combien vous avez bu[g]:</string>
+    <string name="str_enterDeviceIP">Entrez l\'IP de l\'appareil</string>
+    <string name="str_enterMass">Entrez combien vous pesez</string>
+    <string name="str_selectSex">Sélectionnez votre sexe biologique</string>
+    <string name="str_incorrectValues">Valeurs spécifiées non valides</string>
+    <string name="str_bacResult"> Teneur en alcool dans le sang:</string>
+    <string name="str_soberUpTime">Vous deviendrez sobre:</string>
+    <string name="str_authors">Auteurs</string>
+    <string name="str_btnSensor">Utilisez un capteur</string>
+    <string name="str_btnNext">Plus</string>
+    <string name="str_btnManual">Confirmer la valeur</string>
 </resources>

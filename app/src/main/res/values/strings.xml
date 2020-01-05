@@ -36,7 +36,6 @@
     <string name="str_txtAlcohol7" translatable="true">Beer 6%</string>
     <string name="str_txtAlcohol8" translatable="true">Beer 5.6%</string>
     <string name="str_txtAlcohol9" translatable="true">Beer 5.2%</string>
-
     <string name="str_incorrectValues" translatable="true">Provided values are incorrect</string>
     <string name="str_bacResult" translatable="true">Your Blood Alcohol Content is:</string>
     <string name="str_soberUpTime" translatable="true">You will sober up in:</string>

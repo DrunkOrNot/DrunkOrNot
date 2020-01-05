@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="sex_array">
+        <item>Mann</item>
+        <item>Frau</item>
+    </string-array>
     <string name="app_name">Drunk Or Not</string>
+    <string name="str_txtAlcohol">Wodka 40%</string>
+    <string name="str_txtAlcohol1">Wodka 38%</string>
+    <string name="str_txtAlcohol2">Wodka 37.5%</string>
+    <string name="str_txtAlcohol3">Wein 15%</string>
+    <string name="str_txtAlcohol4">Wein 12%</string>
+    <string name="str_txtAlcohol5">Wein 9.5%</string>
+    <string name="str_txtAlcohol6">Bier 7%</string>
+    <string name="str_txtAlcohol7">Bier 6%</string>
+    <string name="str_txtAlcohol8">Bier 5.6%</string>
+    <string name="str_txtAlcohol9">Bier 5.2%</string>
+    <string name="str_selectAlcoholHeader">Wähle, was du getrunken hast</string>
+    <string name="str_btnCalculate">Berechne die Abbauzeit</string>
+    <string name="str_btnFetchData">Entnimm das Ergebnis</string>
+    <string name="str_btnSelectAlcohol">Wähle den Alkohol </string>
+    <string name="str_btnStartSensor">Starte den Sensor </string>
+    <string name="str_enterAlcoholIntake">Trag ein, wie viel du getrunken hast[g]:</string>
+    <string name="str_enterDeviceIP">Trag die IP-Adresse des Gerätes ein</string>
+    <string name="str_enterMass">Gib an, wie viel du wiegst</string>
+    <string name="str_selectSex">Bestimme dein biologisches Geschlecht</string>
+    <string name="str_incorrectValues">Falsche Werte wurden eingegeben</string>
+    <string name="str_bacResult">Der Alkoholgehalt im Blut beträgt:</string>
+    <string name="str_soberUpTime">Du wirst nüchtern in:</string>
+    <string name="str_authors">Autoren</string>
+    <string name="str_btnSensor">Betätige den Sensor</string>
+    <string name="str_btnNext">Weiter</string>
+    <string name="str_btnManual">Bestätige den Wert</string>
 </resources>
