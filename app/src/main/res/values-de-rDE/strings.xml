@@ -31,4 +31,7 @@
     <string name="str_btnSensor">Betätige den Sensor</string>
     <string name="str_btnNext">Weiter</string>
     <string name="str_btnManual">Bestätige den Wert</string>
+    <string name="str_SensorInstr" >(nach dem Betätigen des Sensors warte 10 Sekunden auf die Initialisierung und dann puste stark und gleichmäßig in den Sensor 5 Sekunden lang=</string>
+    <string name="str_MainAlcoholInf">Wähle die Sorte und Menge des getrunkenen Alkohols</string>
+    <string name="str_MainInstr" >Wähle einen der drei Berechnungsmodus der Alkoholabbauzeit</string>
 </resources>

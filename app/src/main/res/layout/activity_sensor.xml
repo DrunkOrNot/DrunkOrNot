@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,14 +30,25 @@
             <TextView
                 android:id="@+id/dscEnterIP"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#760099"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:text="@string/str_enterDeviceIP"
                 android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/txtIpAddress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:textColor="#760099"
+                android:textStyle="bold"
                 android:digits="0123456789."
                 android:ems="10"
                 android:inputType="number|numberDecimal"
@@ -57,6 +68,22 @@
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:text="@string/str_btnStartSensor" />
+
+            <TextView
+                android:id="@+id/SensorInstr"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#760099"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="@string/str_SensorInstr"
+                tools:text="(after starting sensor wait 10 seconds to initialize and then blow intensely and steadily on the sensor for 5 seconds)"/>
 
             <Button
                 android:id="@+id/btnFetchData"

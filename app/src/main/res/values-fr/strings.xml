@@ -31,4 +31,7 @@
     <string name="str_btnSensor">Utilisez un capteur</string>
     <string name="str_btnNext">Plus</string>
     <string name="str_btnManual">Confirmer la valeur</string>
+    <string name="str_SensorInstr" >(après avoir activé le capteur, attendez 10 secondes pour l\'initialisation, puis soufflez intensément et régulièrement sur le détecteur capteur 5 secondes)</string>
+    <string name="str_MainAlcoholInf">Choisissez le type et la quantité de l\'alcool consommé</string>
+    <string name="str_MainInstr" >Choisissez l\'un des trois modes de calcul du temps de brûlage d'alcool</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,14 +19,25 @@
             <TextView
                 android:id="@+id/textMassDescription"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#760099"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:text="@string/str_enterMass"
                 android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/txtMass"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:textColor="#760099"
+                android:textStyle="bold"
                 android:ems="10"
                 android:inputType="number"
                 android:textAlignment="center" />
@@ -34,7 +45,15 @@
             <TextView
                 android:id="@+id/textSexDescription"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#760099"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:text="@string/str_selectSex"
                 android:textAlignment="center" />
 
@@ -42,14 +61,18 @@
                 android:id="@+id/spSex"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:dropDownWidth="match_parent" />
+                android:dropDownWidth="match_parent"
+                android:gravity="center"
+                android:popupBackground="#FFFFFF"
+                android:textColor="#760099"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnCalculate"
                 android:layout_width="330dp"
                 android:layout_height="90dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="10dp"
+                android:layout_margin="50dp"
                 android:background="@drawable/button_select"
                 android:padding="20dp"
                 android:drawableLeft="@drawable/time"

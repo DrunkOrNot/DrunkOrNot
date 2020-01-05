@@ -39,5 +39,8 @@
     <string name="str_incorrectValues" translatable="true">Provided values are incorrect</string>
     <string name="str_bacResult" translatable="true">Your Blood Alcohol Content is:</string>
     <string name="str_soberUpTime" translatable="true">You will sober up in:</string>
+    <string name="str_SensorInstr" translatable="true">(after starting sensor wait 10 seconds to initialize and then blow intensely and steadily on the sensor for 5 seconds)</string>
+    <string name="str_MainAlcoholInf" translatable="true">Select type and quantity of the consumed Alcohol</string>
+    <string name="str_MainInstr" translatable="true">Choose one of three modes to calculate alcohol burning time</string>
 
 </resources>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,9 +17,26 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TableLayout
+            <TextView
+                android:id="@+id/textAlcoholInf"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="90dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="#760099"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="@string/str_MainAlcoholInf"
+                tools:text=" Select type and quantity of the consumed Alcohol"/>
+
+            <TableLayout
+                android:layout_width="250dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal">
 
                 <TableRow
                     android:id="@+id/row0"
@@ -28,19 +47,26 @@
                         android:id="@+id/txtAlcohol"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner01"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner02"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -51,19 +77,26 @@
                         android:id="@+id/txtAlcohol1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner11"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner12"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -74,19 +107,26 @@
                         android:id="@+id/txtAlcohol2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner21"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner22"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -97,19 +137,26 @@
                         android:id="@+id/txtAlcohol3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner31"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner32"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -120,19 +167,26 @@
                         android:id="@+id/txtAlcohol4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner41"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner42"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -143,19 +197,26 @@
                         android:id="@+id/txtAlcohol5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner51"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner52"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -166,19 +227,26 @@
                         android:id="@+id/txtAlcohol6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner61"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner62"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -189,19 +257,26 @@
                         android:id="@+id/txtAlcohol7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner71"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner72"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -212,19 +287,26 @@
                         android:id="@+id/txtAlcohol8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner81"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner82"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -235,19 +317,26 @@
                         android:id="@+id/txtAlcohol9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner91"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner92"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -258,19 +347,26 @@
                         android:id="@+id/txtAlcohol10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner101"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner102"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -281,19 +377,26 @@
                         android:id="@+id/txtAlcohol11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner111"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner112"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -304,19 +407,26 @@
                         android:id="@+id/txtAlcohol12"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner121"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right" />
+                        android:gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner122"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="right" />
+                        android:layout_gravity="right"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -327,7 +437,10 @@
                         android:id="@+id/txtAlcohol13"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TextView" />
+                        android:gravity="center_horizontal"
+                        android:text="TextView"
+                        android:textColor="#760099"
+                        android:textStyle="bold" />
 
                     <Spinner
                         android:id="@+id/spinner131"
@@ -343,6 +456,7 @@
                 </TableRow>
 
             </TableLayout>
+
 
             <Button
                 android:id="@+id/btnConfirm"
