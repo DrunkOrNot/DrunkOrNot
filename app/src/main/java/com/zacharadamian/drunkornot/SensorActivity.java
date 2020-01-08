@@ -96,9 +96,11 @@ public class SensorActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                            String result = Objects.requireNonNull(ds.child("ethanol").getValue()).toString();
+                            String ethanol = Objects.requireNonNull(ds.child("ethanol").getValue()).toString();
+                            String time = Objects.requireNonNull(ds.child("time").getValue()).toString();
+                            String result = time + ethanol;
                             UIHelper.DisplayAlertWithText(result, currentWindow);
-                            Ethanol.SetEthanolIntake(Double.valueOf(result));
+                            Ethanol.SetEthanolIntake(Double.valueOf(ethanol));
                         }
                     }
 
