@@ -16,4 +16,9 @@ public class Calculations {
     public static Double CalculateMaxSoberingUpTime(Body body, Double ethanolMass) {
         return ethanolMass / ((double) body.mass * 0.09d );
     };
+
+    public static Double CalculateEthanolFromBAC(Body body, Double bac) {
+        return ((( ( bac / (0.9 * 10.2) + body.GetMetabolicConstant())*(body.GetWaterConstant()*body.mass) )
+                / (0.806 * 1.2)) * 10);
+    }
 }

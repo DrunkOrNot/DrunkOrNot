@@ -41,6 +41,10 @@ public class NextActivity extends AppCompatActivity {
 
                 try {
                     Body body = new Body(sex, Integer.valueOf(txtMass.getText().toString()));
+
+                    if(Ethanol.GetBAC() != 0)
+                        Ethanol.SetEthanolIntake(Calculations.CalculateEthanolFromBAC(body, Ethanol.GetBAC()));
+
                     Double bac = Calculations.CalculateBAC(body,
                             Ethanol.GetEthanolIntake(), 1); //hardcoded drinkingSpan WIP
 
@@ -55,6 +59,8 @@ public class NextActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     UIHelper.DisplayAlertWithText(getString(R.string.str_incorrectValues), currentWindow);
                 }
+
+                Ethanol.ResetValues();
             }
         });
     }

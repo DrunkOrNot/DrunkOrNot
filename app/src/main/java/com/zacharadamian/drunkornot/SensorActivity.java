@@ -25,7 +25,9 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Objects;
+import java.util.Timer;
 import java.util.concurrent.CompletableFuture;
 
 public class SensorActivity extends AppCompatActivity {
@@ -33,6 +35,7 @@ public class SensorActivity extends AppCompatActivity {
     EditText txtIpAddress;
     Button btnStartSensor;
     Button btnFetchData;
+    TextView txtInstructions;
     AppCompatActivity currentWindow = this;
     private DatabaseReference mDatabase;
 
@@ -45,6 +48,7 @@ public class SensorActivity extends AppCompatActivity {
         txtIpAddress = findViewById(R.id.txtIpAddress);
         btnStartSensor = findViewById(R.id.btnStartSensor);
         btnFetchData = findViewById(R.id.btnFetchData);
+        txtInstructions = findViewById(R.id.SensorInstr);
 
         this.setTitle(getString(R.string.str_empty));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -83,8 +87,10 @@ public class SensorActivity extends AppCompatActivity {
                     }
                 });
 
+                CompletableFuture.runAsync(() -> updateTxtAsync());
             }
         });
+
 
         btnFetchData.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +106,7 @@ public class SensorActivity extends AppCompatActivity {
                             String time = Objects.requireNonNull(ds.child("time").getValue()).toString();
                             String result = time + ethanol;
                             UIHelper.DisplayAlertWithText(result, currentWindow);
-                            Ethanol.SetEthanolIntake(Double.valueOf(ethanol));
+                            Ethanol.SetBAC(Double.valueOf(ethanol));
                         }
                     }
 
@@ -114,6 +120,23 @@ public class SensorActivity extends AppCompatActivity {
                 SensorActivity.this.startActivity(new Intent(SensorActivity.this, NextActivity.class));
             }
         });
+
+    }
+    void updateTxtAsync() {
+        long counter = 10000;
+        long start = System.currentTimeMillis();
+        long destTime = start + counter;
+        while(System.currentTimeMillis() < destTime)
+            txtInstructions.setText("Callibrating:  " + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
+
+        long blowFor = 5000;
+        start = System.currentTimeMillis();
+        destTime = start + blowFor;
+        while(System.currentTimeMillis() < destTime)
+            txtInstructions.setText("Blow now!  " + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
+
+        txtInstructions.setText("Data is ready");
+
 
     }
 }
