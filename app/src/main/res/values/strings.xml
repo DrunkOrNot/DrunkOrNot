@@ -42,5 +42,8 @@
     <string name="str_SensorInstr" translatable="true">(after starting sensor wait 10 seconds to initialize and then blow intensely and steadily on the sensor for 5 seconds)</string>
     <string name="str_MainAlcoholInf" translatable="true">Select type and quantity of the consumed Alcohol</string>
     <string name="str_MainInstr" translatable="true">Choose one of three modes to calculate alcohol burning time</string>
+    <string name="str_calibrating" translatable="true">Calibrating: </string>
+    <string name="str_blow" translatable="true">Blow now! </string>
+    <string name="str_DataReady" translatable="true">Data is ready</string>
 
 </resources>

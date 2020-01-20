@@ -127,15 +127,15 @@ public class SensorActivity extends AppCompatActivity {
         long start = System.currentTimeMillis();
         long destTime = start + counter;
         while(System.currentTimeMillis() < destTime)
-            txtInstructions.setText("Callibrating:  " + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
+            txtInstructions.setText((getString(R.string.str_calibrating)) +' ' + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
 
         long blowFor = 5000;
         start = System.currentTimeMillis();
         destTime = start + blowFor;
         while(System.currentTimeMillis() < destTime)
-            txtInstructions.setText("Blow now!  " + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
+            txtInstructions.setText ((getString(R.string.str_blow))+' ' + String.valueOf((System.currentTimeMillis() - destTime) / -1000 ));
 
-        txtInstructions.setText("Data is ready");
+        txtInstructions.setText(getString(R.string.str_DataReady));
 
 
     }

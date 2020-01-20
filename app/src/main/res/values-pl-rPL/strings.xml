@@ -34,4 +34,7 @@
     <string name="str_SensorInstr" >(po uruchomieniu czujnika poczekaj 10 sekund na inicjalizację i później dmuchaj w niego silnie i jednostajnie przez 5 sekund)</string>
     <string name="str_MainAlcoholInf">Wybierz rodzaj i ilość spożytego alkoholu</string>
     <string name="str_MainInstr" >Wybierz jeden z trzech trybów obliczenia czasu spalania alkoholu</string>
+    <string name="str_calibrating" translatable="true">Kalibracja: </string>
+    <string name="str_blow" translatable="true">Dmuchaj teraz! </string>
+    <string name="str_DataReady" translatable="true">Dane są gotowe</string>
 </resources>

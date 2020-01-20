@@ -34,4 +34,7 @@
     <string name="str_SensorInstr" >(nach dem Betätigen des Sensors warte 10 Sekunden auf die Initialisierung und dann puste stark und gleichmäßig in den Sensor 5 Sekunden lang=</string>
     <string name="str_MainAlcoholInf">Wähle die Sorte und Menge des getrunkenen Alkohols</string>
     <string name="str_MainInstr" >Wähle einen der drei Berechnungsmodus der Alkoholabbauzeit</string>
+    <string name="str_calibrating" translatable="true">Kalibrierung: </string>
+    <string name="str_blow" translatable="true">Puste jetzt! </string>
+    <string name="str_DataReady" translatable="true">Daten sind bereit</string>
 </resources>

@@ -34,4 +34,7 @@
     <string name="str_SensorInstr" >(après avoir activé le capteur, attendez 10 secondes pour l\'initialisation, puis soufflez intensément et régulièrement sur le détecteur capteur 5 secondes)</string>
     <string name="str_MainAlcoholInf">Choisissez le type et la quantité de l\'alcool consommé</string>
     <string name="str_MainInstr" >Choisissez l\'un des trois modes de calcul du temps de brûlage d\'alcool</string>
+    <string name="str_calibrating" translatable="true">Calibrage: </string>
+    <string name="str_blow" translatable="true">Soufflez maintenant! </string>
+    <string name="str_DataReady" translatable="true">Les données sont prêtes</string>
 </resources>
